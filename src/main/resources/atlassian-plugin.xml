@@ -1,0 +1,53 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${atlassian.plugin.name}" plugins-version="2">
+    <plugin-info>
+        <description>${pom.description}</description>
+        <version>${pom.version}</version>
+        <vendor name="${pom.organization.name}" url="${pom.organization.url}"/>
+        <param name="plugin-icon">icon.png</param>
+        <param name="plugin-logo">logo.png</param>
+    </plugin-info>
+
+    <xhtml-macro name="link-validator" class="net.customware.confluence.plugin.linkvalidator.LinkValidatorMacro"
+                 key="link-validator">
+        <description>Validates that the link is functioning correctly.</description>
+        <category name="external-content"/>
+        <parameters>
+            <parameter name="url" type="string" required="true">
+                <alias name=""/>
+            </parameter>
+            <parameter name="verbose" type="boolean"/>
+            <parameter name="timeout" type="int"/>
+        </parameters>
+    </xhtml-macro>
+
+    <macro name="link-validator" class="net.customware.confluence.plugin.linkvalidator.LinkValidatorMacro"
+           key="legacy-link-validator">
+        <description>Validates that the link is functioning correctly.</description>
+    </macro>
+
+    <macro-migrator key="link-validator-migrator"
+                    macro-name="link-validator"
+                    class="net.customware.confluence.plugin.linkvalidator.LinkValidatorMacroMigration"/>
+
+    <xwork name="Link Validator Actions" key="linkvalidator.plugin.actions">
+        <package name="Link Validation" extends="default" namespace="/plugins/linkvalidator">
+            <default-interceptor-ref name="defaultStack"/>
+
+            <action name="validate" class="net.customware.confluence.plugin.linkvalidator.LinkValidatorAction">
+                <result name="success" type="velocity">/templates/extra/linkvalidator/validate.vm</result>
+            </action>
+        </package>
+    </xwork>
+
+    <web-resource name="Link Validator Javascript Resources" key="linkjs">
+        <resource type="download" name="behaviour.js"
+                  location="net/customware/confluence/plugin/linkvalidator/js/behaviour.js"/>
+        <resource type="download" name="validator.js"
+                  location="net/customware/confluence/plugin/linkvalidator/js/validator.js"/>
+    </web-resource>
+    
+    <resource name="i18n" type="i18n" location="net.customware.confluence.plugin.linkvalidator.text"/>
+
+    <resource name="websection-i18n" type="i18n" location="net.customware.confluence.plugin.linkvalidator.i18n"/>
+    <resource name="license-generic" type="i18n" location="net.customware.license.confluence.v2.i18n"/>
+</atlassian-plugin>
