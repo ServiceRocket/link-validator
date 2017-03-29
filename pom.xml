@@ -152,20 +152,6 @@
             <artifactId>atlassian-confluence-pageobjects</artifactId>
             <version>${confluence.version}</version>
             <scope>provided</scope>
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>junit</groupId>-->
-                    <!--<artifactId>junit-dep</artifactId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<groupId>com.atlassian.bundles</groupId>-->
-                    <!--<artifactId>google-collections</artifactId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<groupId>org.seleniumhq.selenium</groupId>-->
-                    <!--<artifactId>selenium-api</artifactId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
         </dependency>
         <dependency>
             <groupId>net.sourceforge.nekohtml</groupId>
