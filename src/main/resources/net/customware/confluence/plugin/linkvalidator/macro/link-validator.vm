@@ -1,0 +1,10 @@
+#requireResource("net.customware.confluence.plugin.linkvalidator:linkjs")
+<script type='text/javascript'>
+//<![CDATA[
+LinkValidator.contextPath = "$contextPath";
+//]]>
+</script>
+
+<div class='validatorElement' url="$url" timeout="$timeout" verbose="$verbose">
+$icon
+</div>
