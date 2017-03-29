@@ -1,0 +1,4 @@
+<img src="$src" title="$title" />
+#if ($showStatus)
+    &nbsp;$status
+#end
