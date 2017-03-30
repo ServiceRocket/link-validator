@@ -15,7 +15,7 @@ public class LinkValidatorMacroTest extends DefaultStatelessTestRunner {
         Content content = createPage("shouldSuccessIfValidLink", "{link-validator:url=" + product.getProductInstance().getBaseUrl() + "|verbose=true}{link-validator}", ContentRepresentation.WIKI);
         ViewPage viewPage = product.viewPage(content);
 
-        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         assertThat(viewPage.getMainContent().getText(), containsString("OK (200)"));
     }
 
@@ -23,7 +23,7 @@ public class LinkValidatorMacroTest extends DefaultStatelessTestRunner {
         Content content = createPage("shouldFailIfInvalidLink", "{link-validator:url=" + product.getProductInstance().getBaseUrl() + "/fail|verbose=true}{link-validator}", ContentRepresentation.WIKI);
         ViewPage viewPage = product.viewPage(content);
 
-        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         assertThat(viewPage.getMainContent().getText(), containsString("Not Found (404)"));
     }
 }
