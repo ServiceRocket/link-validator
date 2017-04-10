@@ -24,8 +24,8 @@
     </description>
 
     <scm>
-        <connection>scm:git:ssh://git@github.com:ServiceRocket/link-validator.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:ServiceRocket/link-validator.git</developerConnection>
+        <connection>scm:git:ssh://git@github.com/ServiceRocket/link-validator.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/ServiceRocket/link-validator.git</developerConnection>
         <url>https://github.com/ServiceRocket/link-validator.git</url>
         <tag>HEAD</tag>
     </scm>
